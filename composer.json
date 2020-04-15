@@ -1,0 +1,27 @@
+{
+    "name": "sem/gpb",
+    "description": "test task",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Semyon Emelyanov",
+            "email": "semseriou@gmail.com"
+        }
+    ],
+    "require": {},
+    "config": {
+        "platform": {
+            "php": "7.4"
+        },
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
