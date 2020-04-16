@@ -21,5 +21,10 @@ services:
             - db
         environment:
           - LOCAL_MODE=0
+          - PHINX_DB_USER=$DB_USER
+          - PHINX_DB_PASSWORD=$DB_PASSWORD
+          - PHINX_DB_NAME=$DB_NAME
+          - PHINX_DB_HOST=$DB_HOST
+          - PHINX_DB_PORT=$DB_PORT
         ports:
             - 8080:$PORT

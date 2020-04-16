@@ -7,11 +7,11 @@ environments:
     default_environment: development
     development:
         adapter: pgsql
-        host: db
-        name: test
-        user: test
-        pass: 'test'
-        port: 5432
+        host: '%%PHINX_DB_HOST%%'
+        name: '%%PHINX_DB_NAME%%'
+        user: '%%PHINX_DB_USER%%'
+        pass: '%%PHINX_DB_PASSWORD%%'
+        port: '%%PHINX_DB_PORT%%'
         charset: utf8
 
 version_order: creation

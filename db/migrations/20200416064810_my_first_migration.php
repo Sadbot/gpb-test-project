@@ -33,11 +33,11 @@ class MyFirstMigration extends AbstractMigration
     {
         // create the table
         $table = $this->table('products');
-        $table->addColumn('position', 'string', ['limit' => 20])
-              ->addColumn('input', 'string')
-              ->addColumn('value', 'string')
-              ->addColumn('parent_id', 'integer')
-              ->addForeignKey('parent_id', 'products', 'id', ['delete'=> 'CASCADE', 'update'=> 'CASCADE'])
-              ->save();
+        $table->addColumn('position', 'string', ['limit' => 20, 'null' => true])
+            ->addColumn('input', 'string', ['null' => true])
+            ->addColumn('price', 'string', ['null' => true])
+            ->addColumn('parent_id', 'integer', ['null' => true])
+            ->addForeignKey('parent_id', 'products', 'id', ['delete' => 'CASCADE', 'update' => 'CASCADE'])
+            ->save();
     }
 }

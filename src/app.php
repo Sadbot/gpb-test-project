@@ -15,17 +15,13 @@ $productsList = $reader->read();
 
 $productGraph = new ProductGraph;
 foreach ($productsList as $csvDTO) {
-    $paragraphs = explode('.', $csvDTO->position);
-    $productGraph->createEmptyAndAdd($paragraphs, $csvDTO);
+    $productGraph->createEmptyAndAdd($csvDTO);
 }
 
 $conn = new Connection;
-$conn->pdo->beginTransaction();
-try {
-    $rep = new ProductRepository($conn->pdo);
-    $rep->
 
-    $conn->pdo->commit();
-} catch (Exception $ex) {
-    $conn->pdo->rollBack();
-}
+$rep = new ProductRepository($conn->pdo);
+$rep->insertIterativelyGraph($productGraph->graph);
+
+echo $productGraph->printToConsole();
+
