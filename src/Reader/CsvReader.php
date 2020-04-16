@@ -18,7 +18,7 @@ class CsvReader {
         }
     }
 
-    public function read() {
+    public function read()  {
         $csvData = [];
         while (($data = fgetcsv($this->file, 0, ';')) !== false) {
             if ($data[0] === '#position') {

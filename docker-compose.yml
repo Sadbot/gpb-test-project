@@ -5,20 +5,21 @@ services:
         restart: on-failure
         image: postgres:12-alpine
         environment:
+          - POSTGRES_DB=$DB_NAME
           - POSTGRES_USER=$DB_USER
           - POSTGRES_PASSWORD=$DB_PASSWORD
-          - POSTGRES_MULTIPLE_DATABASES=$DB_NAME,${DB_NAME}_test
         volumes:
-          - $HOME/.docker-volumes/simba/postgres:/var/lib/postgresql/data
+          - $HOME/.docker-volumes/test/postgres:/var/lib/postgresql/data
         ports:
           - 5432:$DB_PORT
 
     php:
         build: .
-        env_file: .env
         links:
             - db
         depends_on:
             - db
+        environment:
+          - LOCAL_MODE=0
         ports:
             - 8080:$PORT

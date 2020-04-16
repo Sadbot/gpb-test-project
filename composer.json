@@ -9,7 +9,12 @@
             "email": "semseriou@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "ext-pdo": "*",
+        "robmorgan/phinx": "^0.12.1",
+        "symfony/yaml": "^5.0",
+        "vlucas/phpdotenv": "^4.1"
+    },
     "config": {
         "platform": {
             "php": "7.4"
